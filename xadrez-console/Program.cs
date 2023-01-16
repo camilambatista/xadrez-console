@@ -2,6 +2,7 @@
 using Xadrez;
 using Tabuleiro.Enums;
 using Tabuleiro.Excecoes;
+using xadrez_console.Xadrez;
 
 namespace xadrez_console
 {
@@ -10,7 +11,12 @@ namespace xadrez_console
         static void Main(string[] args)
         {
 
-            try
+            PosicaoXadrez pos = new PosicaoXadrez('a', 1);
+
+            Console.WriteLine(pos);
+            Console.WriteLine(pos.ToPosicao());
+
+            /*try
             {
                 Tabuleiro.Tabuleiro tabuleiro = new Tabuleiro.Tabuleiro(8, 8);
 
@@ -24,7 +30,7 @@ namespace xadrez_console
             catch(TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
-            }    
+            }    */
         }
     }
 }
