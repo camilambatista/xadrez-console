@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Data;
+using System.Net.Http.Headers;
 using Tabuleiro;
 using Tabuleiro.Enums;
 using Xadrez;
@@ -7,6 +8,40 @@ namespace xadrez_console
 {
     internal class Tela
     {
+        public static void ImprimirPartida(PartidaDeXadrez partida)
+        {
+            Tela.ImprimirTabuleiro(partida.Tabuleiro);
+            Console.WriteLine();
+            ImprimirPecasCapturadas(partida);
+            Console.WriteLine();
+            Console.WriteLine("Turno: " + partida.Turno);
+            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+        }
+
+        public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            Console.WriteLine("Peças capturadas: ");
+            Console.Write("Brancas: ");
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Branca));
+            Console.WriteLine();
+            Console.Write("Pretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Preta));
+            Console.ForegroundColor = aux;
+            Console.WriteLine();
+        }
+
+        public static void ImprimirConjunto(HashSet<Peca> pecas)
+        {
+            Console.Write("[");
+            foreach (var item in pecas)
+            {
+                Console.Write(item + " ");
+            }
+            Console.Write("]");
+        }
+
         public static void ImprimirTabuleiro(Tabuleiro.Tabuleiro tabuleiro)
         {
             for (int i = 0; i < tabuleiro.Linhas; i++)
