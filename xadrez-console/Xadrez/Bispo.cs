@@ -26,18 +26,21 @@ namespace Xadrez
 
             Posicao pos = new Posicao(0, 0);
 
+            Console.WriteLine("NO");
             // NO
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
             while (Tabuleiro.PosicaoValida(pos) && PodeMover(pos))
             {
+
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tabuleiro.Peca(pos) != null && Tabuleiro.Peca(pos).Cor != Cor)
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna - 1);
             }
 
+            Console.WriteLine("NE");
             // NE
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
             while (Tabuleiro.PosicaoValida(pos) && PodeMover(pos))
@@ -47,9 +50,10 @@ namespace Xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna + 1);
             }
 
+            Console.WriteLine("SE");
             // SE
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
             while (Tabuleiro.PosicaoValida(pos) && PodeMover(pos))
@@ -59,9 +63,10 @@ namespace Xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna + 1);
             }
 
+            Console.WriteLine("SO");
             // SO
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
             while (Tabuleiro.PosicaoValida(pos) && PodeMover(pos))
@@ -71,7 +76,7 @@ namespace Xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna - 1);
             }
 
             return mat;

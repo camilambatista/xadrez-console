@@ -1,9 +1,9 @@
 ﻿using Tabuleiro.Enums;
 using Tabuleiro;
 
-namespace xadrez_console.Xadrez
+namespace Xadrez
 {
-    internal class Peao : Peca
+    class Peao : Peca
     {
         public Peao(Tabuleiro.Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor)
         {
@@ -26,11 +26,6 @@ namespace xadrez_console.Xadrez
             return Tabuleiro.Peca(pos) == null;
         }
 
-        private bool PodeMover(Posicao pos)
-        {
-            Peca p = Tabuleiro.Peca(pos);
-            return p == null || p.Cor != Cor;
-        }
         public override bool[,] MovimentosPossiveis()
         {
             bool[,] mat = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
@@ -46,7 +41,8 @@ namespace xadrez_console.Xadrez
                 }
 
                 pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna);
-                if (Tabuleiro.PosicaoValida(pos) && Livre(pos) && QuantidadeMovimentos == 0)
+                Posicao p2 = new Posicao(Posicao.Linha - 1, Posicao.Coluna);
+                if (Tabuleiro.PosicaoValida(p2) && Livre(p2) && Tabuleiro.PosicaoValida(pos) && Livre(pos) && QuantidadeMovimentos == 0)
                 {
                     mat[pos.Linha, pos.Coluna] = true;
                 }
@@ -73,7 +69,8 @@ namespace xadrez_console.Xadrez
                 }
 
                 pos.DefinirValores(Posicao.Linha + 2, Posicao.Coluna);
-                if (Tabuleiro.PosicaoValida(pos) && Livre(pos) && QuantidadeMovimentos == 0)
+                Posicao p2 = new Posicao(Posicao.Linha + 1, Posicao.Coluna);
+                if (Tabuleiro.PosicaoValida(p2) && Livre(p2) && Tabuleiro.PosicaoValida(pos) && Livre(pos) && QuantidadeMovimentos == 0)
                 {
                     mat[pos.Linha, pos.Coluna] = true;
                 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Tabuleiro.Enums;
 using Tabuleiro;
 
-namespace xadrez_console.Xadrez
+namespace Xadrez
 {
     internal class Cavalo : Peca
     {

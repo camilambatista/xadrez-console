@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Tabuleiro.Enums;
 using Tabuleiro;
 
-namespace xadrez_console.Xadrez
+namespace Xadrez
 {
     internal class Dama : Peca
     {
@@ -88,7 +88,7 @@ namespace xadrez_console.Xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna - 1);
             }
 
             // NE
@@ -100,7 +100,7 @@ namespace xadrez_console.Xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna + 1);
             }
 
             // SE
@@ -112,7 +112,7 @@ namespace xadrez_console.Xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna + 1);
             }
 
             // SO
@@ -124,7 +124,7 @@ namespace xadrez_console.Xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna - 1);
             }
 
             return mat;
