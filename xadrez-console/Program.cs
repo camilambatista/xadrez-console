@@ -38,7 +38,6 @@ namespace xadrez_console
                         partida.ValidarPosicaoDeDestino(origem, destino);
 
                         partida.RealizaJogada(origem, destino);
-                        Console.ReadLine();
                     }
                     catch (TabuleiroException e)
                     {
